@@ -6,6 +6,7 @@ package  {
 	/**
 	 * ...
 	 * @author Jose Luis Jimenez Urbano
+	 * 
 	 */
 	
 	[SWF(framerate = 60, width = 800, height = 600)]
