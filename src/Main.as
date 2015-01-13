@@ -1,10 +1,10 @@
 package{
 	//Starling Imports
-	import flash.display.Bitmap;
-	import flash.geom.Rectangle;
+	import starling.display.MovieClip;
 	import starling.display.Image;
 	import starling.display.Shape;
 	import starling.events.Event;
+	import starling.events.EnterFrameEvent;
 	import starling.display.Sprite;
 	import starling.display.DisplayObject;
 	import starling.textures.Texture;
@@ -15,6 +15,8 @@ package{
 	
 	
 	import flash.desktop.NativeApplication;
+	import flash.display.Bitmap;
+	import flash.geom.Rectangle;
 	//import flash.events.Event;
 	//import flash.display.Sprite;
 	import flash.display.StageAlign;
@@ -37,6 +39,11 @@ package{
 		var texture_atlas:TextureAtlas;
 		
 		
+		//Particles
+		private var particle_mult = 200;
+		private var particle_max_size = 2;
+		private var particle_speed = 10;
+		
 		public function Main():void {
 			addListeners();
 			createObjects();
@@ -55,27 +62,18 @@ package{
 		}
 		
 		private function removeListeners():void {
-			removeEventListener(Event.ENTER_FRAME, mainLoop);
+			removeEventListener(EnterFrameEvent.ENTER_FRAME, mainLoop);
 		}
 		
-		private function mainLoop(e:Event):void {
+		private function mainLoop(e:EnterFrameEvent):void {
 			//This is our main loop
-			
+
 			
 			
 		}
 		
 		private function createObjects():void {
-			var shape:Shape = new Shape();
-			addChild(shape);
-			shape.x = 20;
-			shape.y = 20;
-			
-			shape.graphics.lineStyle(2,0xFFFFFF);
-			shape.graphics.beginFill(0x0957c0);
-			shape.graphics.drawRoundRect( 220, 0, 100, 100, 20 );
-			shape.graphics.endFill();
-			shape.graphics.lineStyle();
+
 		}
 		
 		private function drawBackground():void {
@@ -84,6 +82,10 @@ package{
 			var bg_image:Image = new Image(bg_texture);
 			addChild(bg_image);
 		}
+		
+		
+		
+		
 		
 		private function debugInfo(msg:String):void {
 			trace(date + " ||| " + msg);
