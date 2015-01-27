@@ -5,8 +5,10 @@ call bat\SetupApplication.bat
 
 :target
 goto desktop
+
 ::goto android-debug
 ::goto android-test
+
 set INTERPRETER=-interpreter
 ::goto ios-debug
 ::goto ios-test
@@ -16,8 +18,8 @@ set INTERPRETER=-interpreter
 
 ::set SCREEN_SIZE=NexusOne
 ::set SCREEN_SIZE=iPhoneRetina
-set SCREEN_SIZE=800x600:800x600
-
+::set SCREEN_SIZE=800x600:800x600
+set SCREEN_SIZE=720x1280:720x1280
 :desktop-run
 echo.
 echo Starting AIR Debug Launcher with screen size '%SCREEN_SIZE%'

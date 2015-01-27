@@ -8,10 +8,11 @@
     <movie fps="30" />
     <movie width="480" />
     <movie height="762" />
-    <movie version="3" />
-    <movie minorVersion="5" />
+    <movie version="14" />
+    <movie minorVersion="0" />
     <movie platform="AIR Mobile" />
     <movie background="#FFFFFF" />
+    <movie preferredSDK="Flex 3.6A, AIR 1.5.3;3.6.0, 1.5.3;" />
   </output>
   <!-- Other classes to be compiled into your SWF -->
   <classpaths>
@@ -20,9 +21,11 @@
   <!-- Build options -->
   <build>
     <option accessible="False" />
+    <option advancedTelemetry="False" />
     <option allowSourcePathOverlap="False" />
     <option benchmark="False" />
     <option es="False" />
+    <option inline="False" />
     <option locale="" />
     <option loadConfig="" />
     <option optimize="True" />
@@ -40,7 +43,7 @@
     <option linkReport="" />
     <option loadExterns="" />
     <option staticLinkRSL="True" />
-    <option additional="" />
+    <option additional="-swf-version=23" />
     <option compilerConstants="" />
     <option minorVersion="" />
   </build>
@@ -75,7 +78,7 @@
   </compileTargets>
   <!-- Paths to exclude from the Project Explorer tree -->
   <hiddenPaths>
-    <!-- example: <hidden path="..." /> -->
+    <hidden path="obj" />
   </hiddenPaths>
   <!-- Executed before build -->
   <preBuildCommand />

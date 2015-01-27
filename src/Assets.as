@@ -7,7 +7,7 @@ package
 	public class Assets {
 		
 		//Backgrounds
-		[Embed(source = "../assets/space_bg.jpg")] public static const space_bg:Class; 
+		[Embed(source = "../assets/space_bg2.jpg")] public static const space_bg:Class; 
 		
 		//Ships
 		[Embed(source = "../assets/ship_pack_parts/ss_ship3.png")]public static const ss_ship3:Class;
@@ -27,6 +27,10 @@ package
 			embedAsCFF="false"
 		)]
         public static var audiowide_font:Class;
+		
+		// Particles
+		[Embed(source="../assets/particles/fire_particle.png")]
+		public static const FireParticle:Class;
 		
 		//XML / Atlas
 		[Embed(source = "../assets/background.xml", mimeType = "application/octet-stream")] public static const atlas_xml:Class;

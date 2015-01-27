@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?> 
-<application xmlns="http://ns.adobe.com/air/application/3.5">
+<application xmlns="http://ns.adobe.com/air/application/4.0">
 	
 	<id>air.StarlingTest</id>
 	<versionNumber>0.1</versionNumber>
@@ -44,15 +44,15 @@
         ]]></InfoAdditions> 
 		<requestedDisplayResolution>high</requestedDisplayResolution>
     </iPhone> 
-	
+		
 	<initialWindow>
 		<title>StarlingTest</title>
 		<content>StarlingTest.swf</content>
-		<visible>true</visible>
 		<fullScreen>true</fullScreen>
-		<!--<autoOrients>false</autoOrients>-->
-		<!--<aspectRatio>landscape</aspectRatio>-->
+		<visible>true</visible>
 		<renderMode>direct</renderMode>
+		<aspectRatio>portrait</aspectRatio>
+		<autoOrients>false</autoOrients>
 	</initialWindow>
 	
 	<icon>

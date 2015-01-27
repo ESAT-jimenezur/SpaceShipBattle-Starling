@@ -9,11 +9,13 @@ package  {
 	 * 
 	 */
 	
-	[SWF(framerate = 60, width = 800, height = 600)]
+	[SWF(framerate = 60, width = 720, height = 1280)]
 	public class StarlingInit extends Sprite{
 		
-		public function StarlingInit():void{
+		public function StarlingInit():void {
+			Starling.multitouchEnabled = true;
 			var star:Starling = new Starling(Main, stage);
+			star.simulateMultitouch = true;
 			star.start();
 		}
 		

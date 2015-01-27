@@ -1,1 +1,5 @@
-<textureatlas xmlns="http://www.w3.org/1999/xhtml" imagepath="background.png"><subtexture name="space_bg" x="0" y="0" width="800" height="600"></subtexture></textureatlas>
+<textureatlas xmlns="http://www.w3.org/1999/xhtml" imagepath="background.png">
+	<subtexture name="space_bg2" x="0" y="0" width="720" height="1280">
+		
+	</subtexture>
+</textureatlas>
