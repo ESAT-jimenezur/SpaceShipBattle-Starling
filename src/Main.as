@@ -1,6 +1,7 @@
 package{
 	//Starling Imports
 	import flash.geom.Point;
+	import flash.text.TextFormat;
 	import flash.utils.getTimer;
 	import starling.core.Starling;
 	import starling.display.MovieClip;
@@ -60,11 +61,15 @@ package{
 		private var lastEnemiesGen:int
 		private var lastShot:int
 		
-		private var scene_:Number = 0;
+		private var scene_:Number = 1;
 		private var lives_:Number = 3;
 		private var lives_textfield_:TextField;
 		private var points_:Number = 0;
 		private var points_textfield_:TextField;
+		
+		
+		private var main_menu_title:TextField;
+		private var main_menu_press:TextField;
 		
 		public function Main():void {
 			addListeners();
@@ -72,18 +77,46 @@ package{
 		
 		private function onAdded(e:Event):void {
 			if (scene_ == 0) {
-				removeEventListener(Event.ADDED_TO_STAGE, onAdded);
-				initialize();
-				drawGame();
+				//removeEventListener(Event.ADDED_TO_STAGE, onAdded);
+				//initialize();
+				//drawGame();
 				
 			}else if (scene_ == 1) {
-				drawMenu();
+				addEventListener(TouchEvent.TOUCH, onMenuTouch);
+				addEventListener(EnterFrameEvent.ENTER_FRAME, mainMenuLoop);
 			}
 			debugInfo("Starling Ready!");
 		}
 		
+
+		
+		private function mainMenuLoop(e:EnterFrameEvent):void {
+			drawMenu();
+		}
+		
 		private function drawMenu():void {
+			drawBackground();
+			main_menu_title = new TextField(500, 500, "SpaceShipBattle - Starling", "verdana", 30, Color.WHITE, true);
+			main_menu_title.x = 100;
+			main_menu_title.y = 100;
+			addChild(main_menu_title);
 			
+			main_menu_press = new TextField(500, 500, "Tap the screen to play", "verdana", 15, Color.WHITE, true);
+			main_menu_press.x = 100;
+			main_menu_press.y = 500;
+			addChild(main_menu_press);
+		}
+		
+		private function onMenuTouch(e:TouchEvent):void {
+			trace(scene_);
+			var touch:Touch = e.getTouch(this, TouchPhase.BEGAN);
+			if (touch) {
+				scene_ = 0;
+				removeEventListener(Event.ENTER_FRAME, mainMenuLoop);
+				removeEventListener(Event.ADDED_TO_STAGE, onAdded);
+				initialize();
+				drawGame();
+			}
 		}
 		
 		private function addListeners():void {
@@ -154,7 +187,8 @@ package{
 						for (var j:int = 0; j < bullets.length; j++) {
 							//trace(bulletsLayer.getChildAt(bullets[j]).getBounds(this.parent));
 							//trace(enemiesLayer.getChildAt(enemies[i]).getBounds(this.parent));
-							if (bulletsLayer.getChildAt(bullets[j]).getBounds(this).intersects(enemiesLayer.getChildAt(enemies[i]).getBounds(this))) {
+
+							if (bulletsLayer.getChildAt(bullets[j]).getBounds(bullets[j].parent).intersects(enemiesLayer.getChildAt(enemies[i]).getBounds(enemies[i].parent))) {
 								trace("Colision");
 								points_ += 100;
 								trace(bulletsLayer.getChildAt(bullets[j]).getBounds(this.parent));
@@ -172,7 +206,7 @@ package{
 						if (enemiesLayer.getChildAt(enemies[i]).getBounds(this).intersects(player_ship.parent.getBounds(this))) {
 							lives_--;
 							if (lives_ <= 3) {
-								scene_ = 10;
+								//scene_ = 10;
 							}
 						}
 					}
